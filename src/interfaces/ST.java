@@ -9,9 +9,9 @@ public interface ST <Key extends Comparable<Key>, Value> {
 	 *
 	 */
 	public void put(Key key, Value val); 
-	public Value get(Key key); 
-	public void delete(Key key); 
-	public boolean contains(Key key);
+	public Value get(Key key) throws Exception; 
+	public void delete(Key key) throws Exception; 
+	public boolean contains(Key key) throws Exception;
 	public boolean isEmpty();
 	public int size();
 	//найменший ключ
@@ -19,18 +19,18 @@ public interface ST <Key extends Comparable<Key>, Value> {
 	//найбільший ключ
 	public Key max();
 	 //найбільший ключ менший або рівний key
-	public Key floor(Key key);
+	public Key floor(Key key) throws Exception;
 	//найменший ключ більший або рівний key
-	public Key ceiling(Key key);
+	public Key ceiling(Key key) throws Exception;
 	//кількість ключів менших за key
 	public int rank(Key key);
 	// key k
 	public Key select(int k);
-	public void deleteMin() ;
-	public void deleteMax();
+	public void deleteMin() throws Exception ;
+	public void deleteMax() throws Exception;
 	//кількість ключів в [lo..hi]
-	public int size(Key lo, Key hi);
+	public int size(Key lo, Key hi) throws Exception;
 	//повертає ітератор по ключам
 	public Iterable<Key> keys();
-	public Iterable<Key> keys(Key lo, Key hi);
+	public Iterable<Key> keys(Key lo, Key hi) throws Exception;
 }
